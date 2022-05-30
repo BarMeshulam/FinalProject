@@ -1,0 +1,31 @@
+body{
+    background-color:black;
+}
+
+#logoImg{
+    height: 600px;
+    width: 350px;
+    
+}
+
+
+.container{
+    position: relative;
+    display:flex;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    color: white; 
+    height: 400px;
+}
+
+.center{
+    position: relative; 
+    margin: auto;
+    text-align: center;
+}
+
+.buttonGrey{
+    font-weight: bold;
+    margin-top: 20px;
+}
