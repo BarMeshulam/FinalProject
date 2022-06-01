@@ -19,3 +19,26 @@ function loadLogin() {
 
     });
 }
+
+function loadContact() {
+    fetch("http://localhost:3000/contactUs.html")
+    .then(function(response){
+        return response.text()
+    })
+    .then(function(html){
+        document.getElementById("rednerPage").innerHTML=html;
+
+    });
+}
+
+function loadCatalog() {
+    fetch("http://localhost:3000/catalog.html")
+    .then(function(response){
+        return response.text()
+    })
+    .then(function(html){
+        document.getElementById("rednerPage").innerHTML=html;
+
+    });
+}
+

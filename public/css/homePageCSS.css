@@ -16,7 +16,7 @@ body{
     text-align: center;
     flex-direction: column;
     color: white; 
-    height: 400px;
+    height: 300px;
 }
 
 .center{
@@ -28,4 +28,8 @@ body{
 .buttonGrey{
     font-weight: bold;
     margin-top: 20px;
+}
+
+.whitetext{
+    color: white;
 }
