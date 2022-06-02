@@ -1,0 +1,22 @@
+#footer{
+    color: white;
+    text-align: center;
+}
+
+.fa {
+    padding: 15px;
+    font-size: 10px;
+    width: 50px;
+    text-align: center;
+    text-decoration: none;
+  }
+  
+  /* Add a hover effect if you want */
+  .fa:hover {
+    opacity: 0.7;
+  }
+
+  .fa-linkedin {
+    background: #272727;
+    color: rgb(27, 165, 220);
+  }

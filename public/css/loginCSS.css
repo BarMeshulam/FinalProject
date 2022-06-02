@@ -12,7 +12,7 @@ body {
 }
 
 a {
-  color: black;
+  color: rgb(255, 255, 255);
   display:inline-block;
   text-decoration: none;
   font-weight: 400;
@@ -237,13 +237,13 @@ input[type=text]:placeholder {
   bottom: -10px;
   width: 0;
   height: 2px;
-  background-color: #070707;
+  background-color: #000000;
   content: "";
   transition: width 0.2s;
 }
 
 .underlineHover:hover {
-  color: #0d0d0d;
+  color: #000000;
 }
 
 .underlineHover:hover:after{

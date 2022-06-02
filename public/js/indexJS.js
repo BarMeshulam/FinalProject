@@ -20,6 +20,17 @@ function loadLogin() {
     });
 }
 
+function loadsignUp() {
+    fetch("http://localhost:3000/signUp.html")
+    .then(function(response){
+        return response.text()
+    })
+    .then(function(html){
+        document.getElementById("rednerPage").innerHTML=html;
+
+    });
+}
+
 function loadContact() {
     fetch("http://localhost:3000/contactUs.html")
     .then(function(response){
