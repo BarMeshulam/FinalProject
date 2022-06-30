@@ -53,3 +53,29 @@ function loadCatalog() {
     });
 }
 
+function showTable() {
+    fetch("/getsneack")
+      .then((response) => response.text())
+      .then((data) => {
+        var sneackTypes = JSON.parse(data);
+        var myTables = `<table class="styled-table"> <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Image</th>
+    </tr> </table>`;
+        sneackTypes.forEach((element) => {
+          myTables += `
+                <table class="styled-table">
+                    <tr>
+                        <td>${element.name}</td>
+                        <td>${element.price}</td>
+                        <td>
+                            <img src="./photos/${element.img}.png" alt="${element.img}" width="150" height="120">      
+                        </tr>
+                </table>
+                `;
+        });
+        document.getElementById("myData").innerHTML = myTables;
+      });
+  }
+  
