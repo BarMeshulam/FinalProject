@@ -1,81 +1,158 @@
-function loadHome() {
-    fetch("http://localhost:3000/homePage.html")
-    .then(function(response){
-        return response.text()
-    })
-    .then(function(html){
-        document.getElementById("rednerPage").innerHTML=html;
+function fetchPage(whatPage) { //fetch page
+    fetch(whatPage)
+      .then((response) => response.text())
+      .then((data) => (document.getElementById("rednerPage").innerHTML = data));
+  }
 
-    });
-}
-
-function loadLogin() {
-    fetch("http://localhost:3000/login.html")
-    .then(function(response){
-        return response.text()
-    })
-    .then(function(html){
-        document.getElementById("rednerPage").innerHTML=html;
-
-    });
-}
-
-function loadsignUp() {
-    fetch("http://localhost:3000/signUp.html")
-    .then(function(response){
-        return response.text()
-    })
-    .then(function(html){
-        document.getElementById("rednerPage").innerHTML=html;
-
-    });
-}
-
-function loadContact() {
-    fetch("http://localhost:3000/contactUs.html")
-    .then(function(response){
-        return response.text()
-    })
-    .then(function(html){
-        document.getElementById("rednerPage").innerHTML=html;
-
-    });
-}
-
-function loadCatalog() {
-    fetch("http://localhost:3000/catalog.html")
-    .then(function(response){
-        return response.text()
-    })
-    .then(function(html){
-        document.getElementById("rednerPage").innerHTML=html;
-
-    });
-}
-
-function showTable() {
-    fetch("/getsneack")
+function showMen() { //create table for Men's sneakers
+    fetch("/getMen")
       .then((response) => response.text())
       .then((data) => {
-        var sneackTypes = JSON.parse(data);
-        var myTables = `<table class="styled-table"> <tr>
-        <th>Name</th>
-        <th>Price</th>
-        <th>Image</th>
-    </tr> </table>`;
-        sneackTypes.forEach((element) => {
+        var Men = JSON.parse(data);
+        var myTables = `<table class="styled-table" >
+              <tr>
+              <th></th>
+              <th >Name</th>
+              <th>Image</th>
+              <th>Price $</th>
+              <th>Add to cart </th>
+              
+            
+          </tr>
+      </table>`;
+        Men.forEach((element) => {
           myTables += `
-                <table class="styled-table">
-                    <tr>
-                        <td>${element.name}</td>
-                        <td>${element.price}</td>
-                        <td>
-                            <img src="./photos/${element.img}.png" alt="${element.img}" width="150" height="120">      
-                        </tr>
-                </table>
-                `;
+                        <form action="/addNewOrder">
+                  <table class="styled-table" >
+                 
+                      <tr>
+                          <td><input type="hidden" name="name" value="${element.name}">${element.name}</td>
+                         
+                          <td ><input type="hidden" name="img" value="${element.img}">
+                          <img src="./photos/${element.img}.PNG" alt="${element.img}" width="150" height="120">
+                          </td>
+                          <td> <input type="hidden" name="price" value="${element.price}">${element.price}</td>
+                          <td>
+                          <td><button onclick="openForm(),saveNewOrder()">Add To cart</button></td>
+                      </tr>
+                      </form>
+                      </table>
+                  
+                  `;
         });
-        document.getElementById("myData").innerHTML = myTables;
+        document.getElementById("mensneakers").innerHTML = myTables;
       });
   }
   
+  function showWoman() { //create table for woman's sneakers
+    fetch("/getWoman")
+      .then((response) => response.text())
+      .then((data) => {
+        var Woman = JSON.parse(data);
+        var myTables = `<table class="styled-table">
+          <tr>
+          <th></th>
+          <th>Name</th>
+          <th>Image</th>
+          <th>Price $</th>
+          <th>Add to cart </th>
+        
+      </tr>
+  </table>`;
+        Woman.forEach((element) => {
+          myTables += `
+          <form action="/addNewOrder">
+    <table class="styled-table" >
+   
+        <tr>
+            <td><input type="hidden" name="name" value="${element.name}">${element.name}</td>
+           
+            <td ><input type="hidden" name="img" value="${element.img}">
+            <img src="./photos/${element.img}.PNG" alt="${element.img}" width="150" height="120">
+            </td>
+            <td> <input type="hidden" name="price" value="${element.price}">${element.price}</td>
+            <td>
+            <td><button onclick="openForm(),saveNewOrder()">Add To cart</button></td>
+        </tr>
+        </form>
+        </table>
+                  `;
+        });
+        document.getElementById("womansneakers").innerHTML = myTables;
+      });
+  }
+  
+  function showKids() { //create table for kids sneakers
+    fetch("/getKids")
+      .then((response) => response.text())
+      .then((data) => {
+        var Kids = JSON.parse(data);
+        var myTables = `<table class="styled-table">
+                  <tr>
+                  <th></th>
+                  <th>Name</th>
+                  <th>Image</th>
+                  <th> Price $</th>
+                  <th>Add to cart </th>
+                
+              </tr>
+          </table>`;
+        Kids.forEach((element) => {
+          myTables += `
+                        <form action="/addNewOrder">
+                  <table class="styled-table">
+                 
+                      <tr>
+                          <td><input type="hidden" name="name" value="${element.name}">${element.name}</td>
+                         
+                          <td ><input type="hidden" name="img" value="${element.img}">
+                          <img src="./photos/${element.img}.PNG" alt="${element.img}" width="150" height="120">
+                          </td>
+                          <td> <input type="hidden" name="price" value="${element.price}">${element.price}</td>
+                          <td>
+                          <td><button onclick="openForm(),saveNewOrder()">Add To cart</button></td>
+                      </tr>
+                      </form>
+                      </table>
+          `;
+        });
+        document.getElementById("kidssneakers").innerHTML = myTables;
+      });
+  }
+
+  function showorder() { //show the cart
+    fetch("/getorder")
+      .then((response) => response.text())
+      .then((data) => {
+        var Types = JSON.parse(data);
+        var myTables = `
+        <table class="styled-table">
+                  <tr>
+                  <th> Name </th>
+                  <th>&nbsp Image</th>
+                  <th>&nbsp Price $</th>
+                  <th>&nbsp Total</th>
+                
+              </tr>
+          </table>
+          `;
+        Types.forEach((element) => {
+          myTables += ` 
+                  <table class="styled-table" >
+                      <tr>
+                      <td><input type="hidden" name="nameProduct" value="${element.name}">${element.name}</td>
+                          <td ><input type="hidden" name="img" value="${element.img}">
+                          <img src="./photos/${element.img}.png" alt="${element.img}" width="150" height="120">
+                          </td>
+                          <td><input type="hidden" name="priceProduct" value="${element.price}"> ${element.price}</td>
+                          <td><input type="hidden" name="quantityProduct" value="${element.quantity}"> ${element.quantity}</td>
+                          <td><input type="hidden" name="total" value="${element.total}"> ${element.total}</td>
+                      </tr>
+                      </table>
+                      `; 
+           
+                      
+        });
+        document.getElementById("NewOrder").innerHTML = myTables;
+      });
+  }
