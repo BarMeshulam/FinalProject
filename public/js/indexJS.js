@@ -127,7 +127,7 @@ function showorder() { //show the cart
               <th> &nbsp; </th>
               <th>Price$</th>
               <th> &nbsp; </th>
-              <th> size </th>
+              <th> Size </th>
               <th> &nbsp; </th>
               <th>Quantity </th>
               <th> Total</th>
@@ -136,7 +136,8 @@ function showorder() { //show the cart
         </table>
         `;
       Types.forEach((element) => {
-        myTables += ` 
+        myTables += `
+        <form action="/addorder" >
                 <table class="styled-table" >
                     <tr>
                     <td><input type="hidden" name="nameProduct" value="${element.name}">${element.name}</td>
@@ -147,12 +148,13 @@ function showorder() { //show the cart
                         </td>
                         <td><input type="hidden" name="priceProduct" value="${element.price}"> ${element.price}</td>
                         <th> &nbsp; </th>
-                        <td><input type="hidden" name="sizeProduct" value="${element.size}"> ${element.size}</td>
+                        <td><input type="hidden" name="sizeProduct" value="${element.Size}"> ${element.Size}</td>
                         <th> &nbsp; </th>
                         <td><input type="hidden" name="quantityProduct" value="${element.quantity}"> ${element.quantity}</td>
                         <th> &nbsp; </th>
                         <td><input type="hidden" name="total" value="${element.total}"> ${element.total}</td>
                     </tr>
+                    </form>
                     </table>
                     `; 
          

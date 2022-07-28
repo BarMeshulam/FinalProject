@@ -21,7 +21,20 @@ function AddMen() { //create table for Men's sneakers
           </tr>
       </table>`;
         Men.forEach((element) => {
-          myTables += `
+          myTables += `<datalist id="quantity">
+          <option value ="1">
+          <option value ="2">
+          <option value ="3">
+          <option value ="4">
+          </datalist>
+          <datalist id="sizeProduct">
+          <option value ="40">
+          <option value ="41">
+          <option value ="42">
+          <option value ="43">
+          <option value ="44">
+          <option value ="45">
+          </datalist>
                         <form action="/addNewOrder">
                   <table class="styled-table" >
                  
@@ -31,17 +44,8 @@ function AddMen() { //create table for Men's sneakers
                           <img src="./photos/${element.img}.PNG" alt="${element.img}" width="150" height="120">
                           </td>
                           <td>
-                          <label for="size">Choose a size:</label>
-                          <select name="sizeProduct" id="Size">
-                          <option value="size">Your size</option>
-                            <option value="size">40</option>
-                            <option value="size2">41</option>
-                            <option value="size3">42</option>
-                            <option value="size4">43</option>
-                            <option value="size5">44</option>
-                            <option value="size6">45</option>
-                          </select>
-                          </td>
+                          <input list="Size" id="sizeProduct" placeholder="sizeProduct" name="sizeProduct" required></td>
+
                           <td> <input type="hidden" name="priceProduct" value="${element.price}">${element.price}</td>
                           <td>
                           <input list="quantity" id="quantity" placeholder="quantity" name="quantityProduct" required></td>
@@ -79,36 +83,39 @@ function AddWoman() { //create table for woman's sneakers
       </tr>
   </table>`;
         Woman.forEach((element) => {
-          myTables += `
-          <form action="/addNewOrder">
-    <table class="styled-table" >
-   
-        <tr>
-            <td><input type="hidden" name="nameProduct" value="${element.name}">${element.name}</td>
-           
-            <td ><input type="hidden" name="img" value="${element.img}">
-            <img src="./photos/${element.img}.PNG" alt="${element.img}" width="150" height="120">
-            </td>
-            <td>
-            <label for="size">Choose a size:</label>
-            <select name="size" id="Size">
-            <option value="size">Your size</option>
-              <option value="size1">35</option>
-              <option value="size2">36</option>
-              <option value="size3">37</option>
-              <option value="size4">38</option>
-              <option value="size5">39</option>
-              <option value="size6">40</option>
-              
-            </select>
-            </td>
-            <td> <input type="hidden" name="price" value="${element.price}">${element.price}</td>
-            <td>
-            <input list="quantity" id="quantity" placeholder="quantity" name="quantity" required></td>
-            <td><button onclick="openForm(),saveNewOrder()">Add To cart</button></td>
-        </tr>
-        </form>
-        </table>
+          myTables += `<datalist id="quantity">
+          <option value ="1">
+          <option value ="2">
+          <option value ="3">
+          <option value ="4">
+          </datalist>
+          <datalist id="sizeProduct">
+          <option value ="35">
+          <option value ="36">
+          <option value ="37">
+          <option value ="38">
+          <option value ="39">
+          <option value ="40">
+          </datalist>
+
+            <form action="/addNewOrder">
+            <table class="styled-table" >
+         
+                <tr>
+                    <td><input type="hidden" name="nameProduct" value="${element.name}">${element.name}</td>
+                    <td ><input type="hidden" name="img" value="${element.img}">
+                    <img src="./photos/${element.img}.PNG" alt="${element.img}" width="150" height="120">
+                    </td>
+                    <td>
+                    <input list="Size" id="sizeProduct" placeholder="sizeProduct" name="sizeProduct" required></td>
+
+                    <td> <input type="hidden" name="priceProduct" value="${element.price}">${element.price}</td>
+                    <td>
+                    <input list="quantity" id="quantity" placeholder="quantity" name="quantityProduct" required></td>
+                    <td><button onclick="openForm(),saveNewOrder()">Add To cart</button></td>
+                </tr>
+            </form>
+            </table>
                   `;
         });
         document.getElementById("addToCartWoman").innerHTML = myTables;
@@ -137,35 +144,39 @@ function AddWoman() { //create table for woman's sneakers
               </tr>
           </table>`;
         Kids.forEach((element) => {
-          myTables += `
-                        <form action="/addNewOrder">
-                  <table class="styled-table">
-                 
-                      <tr>
-                          <td><input type="hidden" name="nameProduct" value="${element.name}">${element.name}</td>
-                         
-                          <td ><input type="hidden" name="img" value="${element.img}">
-                          <img src="./photos/${element.img}.PNG" alt="${element.img}" width="150" height="120">
-                          </td>
-                          <td>
-                          <label for="size">Choose a size:</label>
-                          <select name="size" id="Size">
-                          <option value="size">Your size</option>
-                            <option value="size1">28</option>
-                            <option value="size2">29</option>
-                            <option value="size3">30</option>
-                            <option value="size4">31</option>
-                            <option value="size5">32</option>
-                            <option value="size6">33</option>
-                          </select>
-                          </td>
-                          <td> <input type="hidden" name="price" value="${element.price}">${element.price}</td>
-                          <td>
-                          <input list="quantity" id="quantity" placeholder="quantity" name="quantity" required></td>
-                          <td><button onclick="openForm(),saveNewOrder()">Add To cart</button></td>
-                      </tr>
-                      </form>
-                      </table>
+          myTables += `<datalist id="quantity">
+          <option value ="1">
+          <option value ="2">
+          <option value ="3">
+          <option value ="4">
+          </datalist>
+          <datalist id="sizeProduct">
+          <option value ="28">
+          <option value ="29">
+          <option value ="30">
+          <option value ="31">
+          <option value ="32">
+          <option value ="33">
+          </datalist>
+
+            <form action="/addNewOrder">
+            <table class="styled-table" >
+         
+                <tr>
+                    <td><input type="hidden" name="nameProduct" value="${element.name}">${element.name}</td>
+                    <td ><input type="hidden" name="img" value="${element.img}">
+                    <img src="./photos/${element.img}.PNG" alt="${element.img}" width="150" height="120">
+                    </td>
+                    <td>
+                    <input list="Size" id="sizeProduct" placeholder="sizeProduct" name="sizeProduct" required></td>
+
+                    <td> <input type="hidden" name="priceProduct" value="${element.price}">${element.price}</td>
+                    <td>
+                    <input list="quantity" id="quantity" placeholder="quantity" name="quantityProduct" required></td>
+                    <td><button onclick="openForm(),saveNewOrder()">Add To cart</button></td>
+                </tr>
+            </form>
+            </table>
           `;
         });
         document.getElementById("addToCartKids").innerHTML = myTables;

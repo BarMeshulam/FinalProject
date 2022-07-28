@@ -77,7 +77,7 @@ async function deleteOrder(){  //delete cart after purchase
   var client = new MongoClient(url, {useUnifiedTopology: true});
   await client.connect();
   const db = client.db("sneakers");
-  var myquary= {name: /^i/}
+var myquary= {name: /^ /}
   let collection = db.collection('orderDetails');
   let res = await collection.deleteMany(myquary);
   client.close();
@@ -107,3 +107,18 @@ async function GetOpenOrders(){  // find open orders
   return res;
 };
 exports.GetOpenOrders = GetOpenOrders;
+
+async function closeOrders(details){  // mark order as completed
+  var client = new MongoClient(url, {useUnifiedTopology: true});
+  await client.connect();
+  var date=new Date()
+  var split_date=date.getFullYear()+'-' + (date.getMonth()+1) + '-'+date.getDate()
+  var dbo = client.db("sneakers");
+  var myquery = { name: details };
+  var newvalues = { $set: { status: "Close",close_date:split_date } };
+  let collection= dbo.collection('orders');
+  let res=await collection.updateOne(myquery,newvalues);
+  client.close();
+  return res;
+};
+exports.closeOrders = closeOrders;

@@ -21,7 +21,7 @@ app.get('/addmanager', (req, res) => { // add new user by admin
     
   }
   async function mysave(details) {
-    await mydb.saveManager(details).then((result) => res.redirect('adminindex.html'));
+    await mydb.saveManager(details).then((result) => res.redirect('menagerindex.html'));
   }
   mysave(newManager);
 
@@ -54,10 +54,11 @@ app.get('/addNewOrder', (req, res) => { // get order details to the cart
   var order =
   {
     name: req.query.nameProduct,
+    size: req.query.sizeProduct,
     quantity: req.query.quantityProduct,
     price: req.query.priceProduct,
     img:req.query.img,
-    total: req.query.price*req.query.quantity, 
+    total: req.query.priceProduct*req.query.quantityProduct, 
   }
   async function mysave(details) {
     await mydb.saveNewOrder(details).then((result) => res.redirect('customerindex.html'));
@@ -78,7 +79,7 @@ app.get('/addorder', (req, res) => { // add order to mongo
    status:"open",
    nameProduct:req.query.nameProduct,
    price:req.query.priceProduct,
-   size:req.query.sizeProduct,
+   size: req.query.sizeProduct,
    quantity:req.query.quantityProduct
  }
  async function myorder(details) {
@@ -114,9 +115,8 @@ app.get('/addCustomers', (req, res) => { //add new customer
 
 
 app.get("/deleteLastOrder", (req, res) => { // delete the cart
-
   async function deleteLast() {
-    await mydb.deleteOrder().then((result) => res.redirect('customerIndex.html'));
+    await mydb.deleteOrder().then((result) => res.redirect('customerindex.html'));
   }
   deleteLast();
 });
@@ -127,4 +127,14 @@ app.get("/getOpenOrders", (req, res) => { //get open orders from mongo
     await mydb.GetOpenOrders().then((result) => res.send(result));
   }
   getOrders();
+});
+
+app.get("/getclose", (req, res) => { //mark order as completed by name
+
+  var close = req.query.name
+
+  async function getclose(details) {
+    await mydb.closeOrders(details).then((result) => res.redirect('menagerindex.html'));
+  }
+  getclose(close);
 });
