@@ -1,6 +1,7 @@
 #footer{
     color: white;
     text-align: center;
+    position: relative;
 }
 
 .fa {
@@ -19,4 +20,8 @@
   .fa-linkedin {
     background: #272727;
     color: rgb(27, 165, 220);
+  }
+
+  .fa-shopping-cart:before {
+    margin-left: 750px !important;
   }

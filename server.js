@@ -9,21 +9,6 @@ app.listen(port, () => {
   console.log(`http://localhost:${port}`)
 })
 
-app.get('/addCustomers', (req, res) => { //add new customer
-  var newClient =
-  {
-    name: req.query.name,
-    ID: req.query.id,
-    email: req.query.email,
-    password: req.query.password,
-    user:"customer"
-  }
-  async function mysave(details) {
-    await mydb.saveClient(details).then((result) => res.redirect('CustomerIndex.html?#'));
-  }
-  mysave(newClient);
-
-})
 
 app.get('/addmanager', (req, res) => { // add new user by admin
   var newManager =
@@ -65,6 +50,44 @@ app.get("/getkids", (req, res) => { //show all the kids sneakers
 });
 
 
+app.get('/addNewOrder', (req, res) => { // get order details to the cart
+  var order =
+  {
+    name: req.query.nameProduct,
+    quantity: req.query.quantityProduct,
+    price: req.query.priceProduct,
+    img:req.query.img,
+    total: req.query.price*req.query.quantity, 
+  }
+  async function mysave(details) {
+    await mydb.saveNewOrder(details).then((result) => res.redirect('customerindex.html'));
+  }
+  mysave(order);
+
+})
+
+app.get('/addorder', (req, res) => { // add order to mongo
+  var date=new Date()
+  var split_date=date.getFullYear()+'-' + (date.getMonth()+1) + '-'+date.getDate()
+ var neworder =
+ {
+   name: req.query.name,
+   city: req.query.city,
+   address: req.query.address,
+   order_date:split_date,
+   status:"open",
+   nameProduct:req.query.nameProduct,
+   price:req.query.priceProduct,
+   size:req.query.sizeProduct,
+   quantity:req.query.quantityProduct
+ }
+ async function myorder(details) {
+   await mydb.saveorder(details).then((result) => res.redirect('http://localhost:3000/orderClosed.html'));
+ }
+ myorder(neworder);
+
+})
+
 app.get("/getorder", (req, res) => { // get Order Details
   async function myData() {
     await mydb.getOrderDetails().then((result) => res.send(result));
@@ -72,3 +95,36 @@ app.get("/getorder", (req, res) => { // get Order Details
   myData();
 });
 
+app.get('/addCustomers', (req, res) => { //add new customer
+  var newClient =
+  {
+    Fname: req.query.Fname,
+    Lname: req.query.Lname,
+    Phone: req.query.Phone,
+    Email: req.query.Email,
+    password: req.query.Password,
+    user:"customer"
+  }
+  async function mysave(details) {
+    await mydb.saveClient(details).then((result) => res.redirect('customerindex.html'));
+  }
+  mysave(newClient);
+
+})
+
+
+app.get("/deleteLastOrder", (req, res) => { // delete the cart
+
+  async function deleteLast() {
+    await mydb.deleteOrder().then((result) => res.redirect('customerIndex.html'));
+  }
+  deleteLast();
+});
+
+
+app.get("/getOpenOrders", (req, res) => { //get open orders from mongo
+  async function getOrders() {
+    await mydb.GetOpenOrders().then((result) => res.send(result));
+  }
+  getOrders();
+});

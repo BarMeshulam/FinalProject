@@ -6,10 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Log in </title>
 
+    <!-- JS -->
+<script src="./js/indexCustomerJS.js"></script>
+<script src="./js/indexJS.js"></script>
+
     <!-- CSS  -->
     <link rel="stylesheet" href="loginCSS.css">
 </head>
-<body>
+<body >
     <div class="wrapper fadeInDown">
         <div id="formContent">
           <!-- Tabs Titles -->
@@ -20,10 +24,10 @@
       
           <!-- Login Form -->
           <form>
-            <input type="text" id="login" class="fadeIn second" name="login" placeholder="E-Mail">
-            <input type="text" id="password" class="fadeIn third" name="login" placeholder="password">
-            <input type="submit" class="fadeIn fourth" value="Log In">
-           
+            <input type="text" id="login" class="fadeIn second" name="login" placeholder="E-Mail" required>
+            <input type="text" id="password" class="fadeIn third" name="login" placeholder="password" required>
+            <input type="submit" value="Log In" onclick="order.html">
+            <!-- <input type="submit" class="fadeIn fourth" value="Log In" onclick="saveClient()" required>      -->
           </form>
       
          

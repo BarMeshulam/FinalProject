@@ -1,55 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Order </title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Order </title>
+	 <!-- CSS -->
+	 <link rel="stylesheet" href="./css/orderDetailsCSS.css">
+	 <link rel="stylesheet" href="./css/catalogCSS.css">
 </head>
 <body onload="getOrderDetails()">
-
-	<div id="body">
-		<div class="content">
-			<div>
+	<div id="formContent" style="margin-left: auto; margin-right: auto;">
+		<div class="wrapper fadeInDown">
 				<div>
-					<h1>Order Details:</h1>
-				
+					<h1>Order Details</h1>
+					<table class="styled-table" id="myOrder"> </table>
 
 					<form action="/addorder">
-						<div id="myOrder"></div>
-					<br><br>
-						<label for="name"> <span class="text"> Name:</span>
-							<input type="text" name="name" id="name">
-						</label>
-						<label for="email"> <span> Address:</span>
-							<input type="text" name="address" id="email">
-						</label>
-						<label for="email"> <span> City:</span>
-							<input type="text" name="city" id="email">
-						</label><br>
+						<input type="text" name="name" id="expityMonth" placeholder="Name"
+								required />
+						<input type="text" name="city" id="expityMonth" placeholder="City"
+								required />
+						<input type="text" name="address" id="expityMonth" placeholder="Address"
+								required />
+
 						<h4>Order payment</h4>
 
-						<label for="cardNumber"> <span class="text"> CARD NUMBER</span>
-
+							<br>
 							<input type="text" name="cardNumber" id="cardNumber" placeholder="Valid Card Number"
-								required autofocus /><br><br>
-						</label>
+								required autofocus />
+						</label> <br>
 						<label for="expiryDate"> <span>EXPIRY DATE</span>
+							<br>
 							<input type="text" name="expityMonth" id="expityMonth" placeholder="MM" maxlength="2"
 								required />
 							<input type="text" class="form-control" id="expityYear" placeholder="YY" maxlength="4"
 								required />
-						</label><br>
+								<br>
+						</label>
 						<label for="cvCode">
 							<span> CV CODE</span>
+							<br><br>
 							<input type="password" name="cvCode" id="cvCode" placeholder="CV" required />
 						</label>
-						<br><br><br>
-						<button id="payButton">
-							<a onclick="saveorder(),fetchPage('thankYou.html')"> pay</a>
-						</button>
+						<input type="submit" class="fadeIn fourth" value="pay" onclick="saveorder(),fetchPage('orderClosed.html')" required>
 					</form>
-				</div>
+
 			</div>
 		</div>
 	</div>

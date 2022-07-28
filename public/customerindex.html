@@ -13,14 +13,13 @@
 <link rel="stylesheet" href="./css/homePageCSS.css">
 <link rel="stylesheet" href="./css/loginCSS.css">
 <link rel="stylesheet" href="./css/indexCSS.css">
-<link rel="stylesheet" href="./css/contactUsCSS.css">
 <link rel="stylesheet" href="./css/singUpCSS.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
 <!-- JS -->
+<script src="./js/indexCustomerJS.js"></script>
 <script src="./js/indexJS.js"></script>
-
 
 
 </head>
@@ -28,23 +27,17 @@
 
 <body onload= "fetchPage('homePage.html')">
    
-   
-
-    
-    
 
     <!-- navigation bar -->
 
 
     <div class="whitetext" >
         <span class="left"> <img src="./sneakerlogo.jpg" alt="the logo" width="100px" > </span> 
-        
         <a href="#" class="w3-bar-item w3-button" onclick="fetchPage('homePage.html')">Home</a>
-        <a href="#" class="w3-bar-item w3-button" onclick="fetchPage('catalog.html')"> Catalog</a>
-        <a href="#" class="w3-bar-item w3-button" onclick="fetchPage('login.html')">Login</a>
-        <a href="#" class="w3-bar-item w3-button" onclick="fetchPage('signUp.html')">Sign Up</a>
-      
-      </div>
+        <a href="#" class="w3-bar-item w3-button" onclick="fetchPage('AddCatalog.html')"> Catalog</a>
+        <a href="index.html" class="w3-bar-item w3-button" >log out</a>
+        <span href="#" id="cart" class="fa fa-shopping-cart" onclick="fetchPage('order.html'),showorder()"></span>
+    </div>
 
       <!-- render page -->
 

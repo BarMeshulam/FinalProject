@@ -22,14 +22,14 @@
          
       
           <!-- Login Form -->
-          <form>
-            <input type="text"  class="fadeIn second" name="signUpFname" placeholder="First Name">
-            <input type="text"  class="fadeIn third" name="signUpLname" placeholder="Last Name">
-            <input type="text"  class="fadeIn third" name="signUpEmail" placeholder="E-Mail">
-            <input type="text"  class="fadeIn third" name="signUpPhone" placeholder="Phone">
-            <input type="text"  class="fadeIn third" name="signUpAge" placeholder="Your Age">
-            <input type="text"  class="fadeIn third" name="signUpPassword" placeholder="Enter Your Password">
-            <input type="submit" class="fadeIn fourth" value="Sign Up" onclick="saveClient()">
+          <form action="/addCustomers">
+            <input type="text"  class="fadeIn second" name="Fname" placeholder="First Name" required>
+            <input type="text"  class="fadeIn third" name="Lname" placeholder="Last Name" required>
+            <input type="text"  class="fadeIn third" name="Email" placeholder="E-Mail" required>
+            <input type="text"  class="fadeIn third" name="Phone" placeholder="Phone" required>
+            <input type="text"  class="fadeIn third" name="Age" placeholder="Your Age" required>
+            <input type="password"  class="fadeIn third" name="Password" placeholder="Enter Your Password" required>
+            <input type="submit" class="fadeIn fourth" value="Sign Up" onclick="saveClient()" required>
            
           </form>
     
