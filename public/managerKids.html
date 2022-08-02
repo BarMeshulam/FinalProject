@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Kids Shoes</title>
+    
+        <!-- CSS  -->
+        <link rel="stylesheet" href="./css/ManagerCSS.css">
+</head>
+    <body onload="showKids()">
+
+        <div>
+
+            <h1>Kids Shoes :<button class="newProduct" id="open-button_product" onclick="openFormAddNewKidsShoes()"> add a new kids shoes</button></h1>
+
+            <div id="myFormKids">
+                <form action="/NewKidsProduct" >
+                    <div>
+                        <h3 > New Kids shoes</h3>
+                    </div>
+                    name<input type="text" name="name" required>
+                    price<input type="text" name="price" required> 
+                    image<input type="text" name="img" required> 
+
+                    <button type="submit"  onclick="SaveNewKidsShoes()">Add</button>
+                    <button type="button"  onclick="closeFormNewKidsShoes()">Cancel</button>
+                </form>
+
+            </div>
+
+            <div id="kidssneakers"></div>
+
+            
+        
+        
+
+            </ul>
+
+        </div>
+
+</body>
+</html>

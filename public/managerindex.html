@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>MYSHOES</title>
+
+    <!-- CSS -->
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="./css/homePageCSS.css">
+<link rel="stylesheet" href="./css/loginCSS.css">
+<link rel="stylesheet" href="./css/indexCSS.css">
+<link rel="stylesheet" href="./css/singUpCSS.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- JS -->
+<script src="./js/indexJS.js"></script>
+<script src="./js/indexManagerJS.js" ></script>
+
+</head>
+
+<body onload= "fetchPage('homePage.html')">
+
+    <!-- navigation bar -->
+
+
+    <div class="whitetext" >
+        <span class="left"> <img src="./sneakerlogo.jpg" alt="the logo" width="100px" > </span> 
+        
+        <a href="#" class="w3-bar-item w3-button" onclick="fetchPage('homePage.html')">Home</a>
+        <a href="#" class="w3-bar-item w3-button" onclick="fetchPage('catalog.html')"> Add Shoes</a>
+        <a href="#" class="w3-bar-item w3-button" onclick="fetchPage('managerSignUp.html')">Add User</a>
+        <a href="#" class="w3-bar-item w3-button" onclick="fetchPage('ordersOpen.html')">Open Orders</a>
+        <a href="#" class="w3-bar-item w3-button" onclick="fetchPage('managerDeleteUser.html'),showUsers()">Delete User</a>
+        <a href="index.html" class="w3-bar-item w3-button" >log out</a>
+      
+      </div>
+
+      <!-- render page -->
+
+      <div id="rednerPage">
+          123
+
+      </div>
+      <div id="footer"  >
+        <p>  Bar Linkdin   <a href="https://www.linkedin.com/in/barmeshulam/" class="fa fa-linkedin"></a> Keshet Linkdin   <a href="https://www.linkedin.com/in/keshetmor/" class="fa fa-linkedin"></a>  Nadav Linkdin   <a href="https://www.linkedin.com/in/nadavyerushalmi/" class="fa fa-linkedin"></a> </p>
+        <p>&copy; MYSHOES COMPANY INC. All Rights Reserved. </p>  
+        
+  
+      </div>
+</body>
+</html>

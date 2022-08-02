@@ -3,8 +3,8 @@ body{
 }
 
 #logoImg{
-    height: 600px;
-    width: 350px;
+    height: 350px;
+    width: 550px;
     
 }
 
@@ -16,7 +16,7 @@ body{
     text-align: center;
     flex-direction: column;
     color: white; 
-    height: 300px;
+    height: 515px;
 }
 
 .center{
@@ -32,4 +32,15 @@ body{
 
 .whitetext{
     color: white;
+    width: 900px
+}
+
+.sneakerlogo{
+    position: relative;
+    display:flex;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    color: white; 
+    height: 300px;
 }

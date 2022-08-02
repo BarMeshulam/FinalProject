@@ -17,24 +17,20 @@
     <div class="wrapper fadeInDown">
         <div id="formContent">
           <!-- Tabs Titles -->
-          <h2 class="active"> Sign In </h2>
-        
-      
-         
-      
+          <h2 class="active"> Sign In </h2>     
+          
           <!-- Login Form -->
-          <form>
-            <input type="text" id="login" class="fadeIn second" name="login" placeholder="E-Mail" required>
-            <input type="text" id="password" class="fadeIn third" name="login" placeholder="password" required>
-            <input type="submit" value="Log In" href='customerindex.html'>
-            <!-- <input type="submit" class="fadeIn fourth" value="Log In" onclick="saveClient()" required>      -->
-          </form>
-      
-         
-          </div>
-      
+
+          <form action="/login" >
+
+							<input type="text" id="Email" class="fadeIn second" name="login" placeholder="E-Mail" required>
+							<input type="password" id="password" class="fadeIn third" name="login" placeholder="password" required> <br>
+              <input type="submit" class="fadeIn fourth" value="Log In" required>
+
+					</form>
+
         </div>
-      </div>
-                
+    </div>    
 </body>
 </html>
+

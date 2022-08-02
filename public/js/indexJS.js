@@ -148,7 +148,7 @@ function showorder() { //show the cart
                         </td>
                         <td><input type="hidden" name="priceProduct" value="${element.price}"> ${element.price}</td>
                         <th> &nbsp; </th>
-                        <td><input type="hidden" name="sizeProduct" value="${element.Size}"> ${element.Size}</td>
+                        <td><input type="hidden" name="sizeProduct" value="${element.size}"> ${element.size}</td>
                         <th> &nbsp; </th>
                         <td><input type="hidden" name="quantityProduct" value="${element.quantity}"> ${element.quantity}</td>
                         <th> &nbsp; </th>

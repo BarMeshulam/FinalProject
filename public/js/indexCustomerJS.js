@@ -27,7 +27,7 @@ function AddMen() { //create table for Men's sneakers
           <option value ="3">
           <option value ="4">
           </datalist>
-          <datalist id="sizeProduct">
+          <datalist id="size">
           <option value ="40">
           <option value ="41">
           <option value ="42">
@@ -43,12 +43,9 @@ function AddMen() { //create table for Men's sneakers
                           <td ><input type="hidden" name="img" value="${element.img}">
                           <img src="./photos/${element.img}.PNG" alt="${element.img}" width="150" height="120">
                           </td>
-                          <td>
-                          <input list="Size" id="sizeProduct" placeholder="sizeProduct" name="sizeProduct" required></td>
-
                           <td> <input type="hidden" name="priceProduct" value="${element.price}">${element.price}</td>
-                          <td>
-                          <input list="quantity" id="quantity" placeholder="quantity" name="quantityProduct" required></td>
+                          <td> <input list="size" id="size" placeholder="size" name="sizeProduct" required></td>
+                          <td> <input list="quantity" id="quantity" placeholder="quantity" name="quantityProduct" required></td>
                           <td><button onclick="openForm(),saveNewOrder()">Add To cart</button></td>
                       </tr>
                       </form>
@@ -106,12 +103,9 @@ function AddWoman() { //create table for woman's sneakers
                     <td ><input type="hidden" name="img" value="${element.img}">
                     <img src="./photos/${element.img}.PNG" alt="${element.img}" width="150" height="120">
                     </td>
-                    <td>
-                    <input list="Size" id="sizeProduct" placeholder="sizeProduct" name="sizeProduct" required></td>
-
                     <td> <input type="hidden" name="priceProduct" value="${element.price}">${element.price}</td>
-                    <td>
-                    <input list="quantity" id="quantity" placeholder="quantity" name="quantityProduct" required></td>
+                    <td> <input list="size" id="size" placeholder="size" name="sizeProduct" required></td>
+                    <td> <input list="quantity" id="quantity" placeholder="quantity" name="quantityProduct" required></td>
                     <td><button onclick="openForm(),saveNewOrder()">Add To cart</button></td>
                 </tr>
             </form>
@@ -167,12 +161,9 @@ function AddWoman() { //create table for woman's sneakers
                     <td ><input type="hidden" name="img" value="${element.img}">
                     <img src="./photos/${element.img}.PNG" alt="${element.img}" width="150" height="120">
                     </td>
-                    <td>
-                    <input list="Size" id="sizeProduct" placeholder="sizeProduct" name="sizeProduct" required></td>
-
                     <td> <input type="hidden" name="priceProduct" value="${element.price}">${element.price}</td>
-                    <td>
-                    <input list="quantity" id="quantity" placeholder="quantity" name="quantityProduct" required></td>
+                    <td> <input list="size" id="size" placeholder="size" name="sizeProduct" required></td>
+                    <td> <input list="quantity" id="quantity" placeholder="quantity" name="quantityProduct" required></td>
                     <td><button onclick="openForm(),saveNewOrder()">Add To cart</button></td>
                 </tr>
             </form>
