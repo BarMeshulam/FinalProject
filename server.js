@@ -150,7 +150,7 @@ app.get("/getusers", (req, res) => { //get exist users from mongoDB
 
 app.get("/getclose", (req, res) => { //mark order as completed by name
 
-  var close = req.query.name
+  var close = req.query.address
 
   async function getclose(details) {
     await mydb.closeOrders(details).then((result) => res.redirect('managerindex.html'));
@@ -160,7 +160,7 @@ app.get("/getclose", (req, res) => { //mark order as completed by name
 
 app.get("/delete", (req, res) => { //delete user 
 
-  var Delete = req.query.ID
+  var Delete = req.query.Email
 
   async function getclose(details) {
     await mydb.deleteUser(details).then((result) => res.redirect('managerindex.html'));

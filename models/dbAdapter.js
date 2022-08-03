@@ -97,7 +97,7 @@ exports.SaveNewMenShoes = SaveNewMenShoes;
 async function SaveNewWomanShoes(details){  // save new woman shoe to mongoDB
   var client = new MongoClient(url, {useUnifiedTopology: true});
   await client.connect();
-  var col = client.db("sneakers").collection("woman");
+  var col = client.db("sneakers").collection("women");
   var result = await col.insertOne(details);
   client.close();
   return result;
@@ -146,7 +146,7 @@ async function closeOrders(details){  // mark order as completed
   var date=new Date()
   var split_date=date.getFullYear()+'-' + (date.getMonth()+1) + '-'+date.getDate()
   var dbo = client.db("sneakers");
-  var myquery = { name: details };
+  var myquery = { address: details };
   var newvalues = { $set: { status: "Close",close_date:split_date } };
   let collection= dbo.collection('orders');
   let res=await collection.updateOne(myquery,newvalues);
@@ -159,7 +159,7 @@ async function deleteUser(details){  //delete user
   var client = new MongoClient(url, {useUnifiedTopology: true});
   await client.connect();
   var dbo = client.db("sneakers");
-  var myquery = { ID: details };
+  var myquery = { Email: details };
   let collection= dbo.collection('users');
   let res=await collection.deleteOne(myquery);
   client.close();

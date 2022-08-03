@@ -8,36 +8,32 @@
 
         <!-- CSS  -->
         <link rel="stylesheet" href="./css/ManagerCSS.css">
+        <link rel="stylesheet" href="./css/catalogCSS.css">
+        <link rel="stylesheet" href="loginCSS.css">
 </head>
-    <body onload="showMen()">
+<body onload="showMen()">
 
-                    <div>
-    
-                        <h1>Men Shoes :<button class="newProduct" id="open-button_product" onclick="openFormAddNewMenShoes()"> add a new Men shoes</button></h1>
-    
-                        <div id="myFormMen">
-                            <form action="/NewMenProduct" >
-                                <div>
-                                    <h3 > New men shoes</h3>
-                                </div>
-                                name<input type="text" name="name" required>
-                                price<input type="text" name="price" required> 
-                                image<input type="text" name="img" required> 
-    
-                                <button type="submit"  onclick="SaveNewMenShoes()">Add</button>
-                                <button type="button"  onclick="closeFormNewMenShoes()">Cancel</button>
-                            </form>
-    
-                        </div>
-    
-                        <div id="mensneakers"></div>
-    
-                        
-                    
-                    
-    
-                        </ul>
-    
+				<div>
+
+					<h1 style="color:white;"> Men Shoes <button class="newProduct" id="open-button_product" onclick="openFormAddNewMenShoes()"> add a new men shoes</button></h1>
+                    <br>
+
+					<div class="form-popup" id="myFormMen">
+						<form action="/NewMenProduct" class="wrapper fadeInDown">
+							<div id="popup">
+								<h3 style="color:white;"> New men shoes</h3>
+							</div>
+							<input type="text" name="name" placeholder="name" required>
+							<input type="text" name="price" placeholder="price" required> 
+							<input type="text" name="img" placeholder="image" required> 
+                            <br>
+                            <input type="submit" class="fadeIn fourth" value="Add" onclick="SaveNewMenShoes()" required>
+                            <input type="button" class="fadeIn fourth" value="Cancel" onclick="closeFormNewMenShoes()" required>
+
+						</form>
                     </div>
+
+					<div id="mensneakers"></div>
+                </div>
 </body>
 </html>

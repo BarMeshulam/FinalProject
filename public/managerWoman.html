@@ -5,38 +5,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add New Woman Shoes</title>
-    
+
         <!-- CSS  -->
         <link rel="stylesheet" href="./css/ManagerCSS.css">
+        <link rel="stylesheet" href="./css/catalogCSS.css">
+        <link rel="stylesheet" href="loginCSS.css">
 </head>
-    <body onload="showWoman()">
+<body onload="showWoman()">
 
-        <div>
+				<div>
 
-            <h1>Woman Shoes :<button class="newProduct" id="open-button_product" onclick="openFormAddNewWomanShoes()"> add a new Woman shoes</button></h1>
+					<h1 style="color:white;"> Woman Shoes <button class="newProduct" id="open-button_product" onclick="openFormAddNewWomanShoes()"> add a new Woman shoes</button></h1>
+                    <br>
 
-            <div id="myFormWoman">
-                <form action="/NewWomanProduct" >
-                    <div>
-                        <h3 > New Woman Shoes</h3>
+					<div class="form-popup" id="myFormWoman">
+						<form action="/NewWomanProduct" class="wrapper fadeInDown">
+							<div id="popup">
+								<h3 style="color:white;"> New Woman shoes</h3>
+							</div>
+							<input type="text" name="name" placeholder="name" required>
+							<input type="text" name="price" placeholder="price" required> 
+							<input type="text" name="img" placeholder="image" required> 
+                            <br>
+                            <input type="submit" class="fadeIn fourth" value="Add" onclick="SaveNewWomanShoes()" required>
+                            <input type="button" class="fadeIn fourth" value="Cancel" onclick="closeFormNewWomanShoes()" required>
+
+						</form>
                     </div>
-                    name<input type="text" name="name" required>
-                    price<input type="text" name="price" required> 
-                    image<input type="text" name="img" required> 
 
-                    <button type="submit"  onclick="SaveNewWomanShoes()">Add</button>
-                    <button type="button"  onclick="closeFormNewWomanShoes()">Cancel</button>
-                </form>
-
-            </div>
-
-            <div id="womansneakers"></div>
-
-            
-        
-        
-
-            </ul>
-  
-    </body>
+					<div id="womansneakers"></div>
+                </div>
+</body>
 </html>

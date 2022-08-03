@@ -163,3 +163,20 @@ function showorder() { //show the cart
       document.getElementById("myOrder").innerHTML = myTables;
     });
 }
+
+function getval(){ //search by category name
+  const val = document.querySelector('input').value;
+  if(val.toLowerCase() === "men"){
+    fetchPage('men.html'),showMen();
+  }
+  if (val.toLowerCase() === "woman"){
+    fetchPage('woman.html'),showWoman();
+  }
+  if (val.toLowerCase() === "kids") {
+    fetchPage('kids.html'),showKids();
+  }
+  if (val.toLowerCase() != "men" && val.toLowerCase() != "woman" && val.toLowerCase() != "kids"){
+    alert('no '+ val+ ' product')
+  } 
+
+}
