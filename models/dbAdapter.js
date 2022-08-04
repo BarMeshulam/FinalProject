@@ -3,7 +3,7 @@ var MongoClient = require('mongodb').MongoClient;
 const url = "mongodb://localhost:27017/";
 const client = new MongoClient(url);
 
-async function loginUser(details){ // Verify login 
+async function loginUser(details){ // User identification from MongoDB 
   var client = new MongoClient(url, {useUnifiedTopology: true});
   await client.connect();
   var query = { Email: String(details.Email), password: String (details.password) };
@@ -15,7 +15,7 @@ async function loginUser(details){ // Verify login
 }
 exports.loginUser=loginUser;
 
-async function saveClient(details){  // save new customers
+async function saveClient(details){  // add and save new customers into the MongoDB
   var client = new MongoClient(url, {useUnifiedTopology: true});
   await client.connect();
   var col = client.db("sneakers").collection("users");
@@ -25,7 +25,7 @@ async function saveClient(details){  // save new customers
 }
 exports.saveClient = saveClient;
 
-async function saveManager(details){  // save new customers 
+async function saveManager(details){  // add and save new managers into the MongoDB
   var client = new MongoClient(url, {useUnifiedTopology: true});
   await client.connect();
   var col = client.db("sneakers").collection("users");
@@ -36,7 +36,7 @@ async function saveManager(details){  // save new customers
 exports.saveManager = saveManager;
 
 
-async function saveorder(details){  //save new order
+async function saveorder(details){  // add and save new order into the MongoDB
   var client = new MongoClient(url, {useUnifiedTopology: true});
   await client.connect();
   var col = client.db("sneakers").collection("orders");
@@ -44,11 +44,10 @@ async function saveorder(details){  //save new order
   client.close();
   return result;
 }
-
 exports.saveorder=saveorder;
 
 
-async function getmen(){  // show mens sneakers
+async function getmen(){  // Import data of men shoes from MongoDB
   var client = new MongoClient(url, {useUnifiedTopology: true});
   await client.connect();
   const db = client.db("sneakers");
@@ -57,10 +56,9 @@ async function getmen(){  // show mens sneakers
   client.close();
   return res;
 }
-
 exports.getmen = getmen;
 
-async function getwoman(){  //show woman's sneakers
+async function getwoman(){  // Import data of woman shoes from MongoDB
   var client = new MongoClient(url, {useUnifiedTopology: true});
   await client.connect();
   const db = client.db("sneakers");
@@ -69,10 +67,9 @@ async function getwoman(){  //show woman's sneakers
   client.close();
   return res;
 }
-
 exports.getwoman = getwoman;
 
-async function getkids(){  //show kids sneakers
+async function getkids(){  // Import data of kids shoes from MongoDB
   var client = new MongoClient(url, {useUnifiedTopology: true});
   await client.connect();
   const db = client.db("sneakers");
@@ -84,7 +81,7 @@ async function getkids(){  //show kids sneakers
 
 exports.getkids = getkids;
 
-async function SaveNewMenShoes(details){  // save new men shoe to mongoDB
+async function SaveNewMenShoes(details){  // add and save new men shoe to mongoDB
   var client = new MongoClient(url, {useUnifiedTopology: true});
   await client.connect();
   var col = client.db("sneakers").collection("men");
@@ -94,7 +91,7 @@ async function SaveNewMenShoes(details){  // save new men shoe to mongoDB
 }
 exports.SaveNewMenShoes = SaveNewMenShoes;
 
-async function SaveNewWomanShoes(details){  // save new woman shoe to mongoDB
+async function SaveNewWomanShoes(details){  // add and save new woman shoe to mongoDB
   var client = new MongoClient(url, {useUnifiedTopology: true});
   await client.connect();
   var col = client.db("sneakers").collection("women");
@@ -105,7 +102,7 @@ async function SaveNewWomanShoes(details){  // save new woman shoe to mongoDB
 exports.SaveNewWomanShoes = SaveNewWomanShoes;
 
 
-async function SaveNewKidsShoes(details){  // save new kids shoe to mongoDB
+async function SaveNewKidsShoes(details){  // add and save new kids shoe to mongoDB
   var client = new MongoClient(url, {useUnifiedTopology: true});
   await client.connect();
   var col = client.db("sneakers").collection("kids");
@@ -116,7 +113,7 @@ async function SaveNewKidsShoes(details){  // save new kids shoe to mongoDB
 exports.SaveNewKidsShoes = SaveNewKidsShoes;
 
 
-async function GetOpenOrders(){  // find open orders
+async function GetOpenOrders(){  // Import all orders whose status is open from MongoDB
   var client = new MongoClient(url, {useUnifiedTopology: true});
   await client.connect();
   var dbo = client.db("sneakers");
@@ -128,7 +125,7 @@ async function GetOpenOrders(){  // find open orders
 };
 exports.GetOpenOrders = GetOpenOrders;
 
-async function getUsers(){  // get all the exist users 
+async function getUsers(){  // Import all existing users in MongoDB
   var client = new MongoClient(url, {useUnifiedTopology: true});
   await client.connect();
   var dbo = client.db("sneakers");
@@ -140,7 +137,7 @@ async function getUsers(){  // get all the exist users
 exports.getUsers = getUsers;
 
 
-async function closeOrders(details){  // mark order as completed
+async function closeOrders(details){  // Changes the order status to close in MongoDB
   var client = new MongoClient(url, {useUnifiedTopology: true});
   await client.connect();
   var date=new Date()
@@ -155,7 +152,7 @@ async function closeOrders(details){  // mark order as completed
 };
 exports.closeOrders = closeOrders;
 
-async function deleteUser(details){  //delete user
+async function deleteUser(details){  // Deletes one of the existing users from MongoDB
   var client = new MongoClient(url, {useUnifiedTopology: true});
   await client.connect();
   var dbo = client.db("sneakers");
@@ -168,7 +165,7 @@ async function deleteUser(details){  //delete user
 exports.deleteUser = deleteUser;
 
 
-async function saveNewOrder(details){   //add products to cart
+async function saveNewOrder(details){   //Adds products to the shopping cart on the website and adds them to the order details collection in Mongo DB
   var client = new MongoClient(url, {useUnifiedTopology: true});
   await client.connect();
   var col = client.db("sneakers").collection("orderDetails");
@@ -180,7 +177,7 @@ exports.saveNewOrder = saveNewOrder;
 
 
 
-async function getOrderDetails(){  //show my cart 
+async function getOrderDetails(){  // Imports the order details from MongoDB
   var client = new MongoClient(url, {useUnifiedTopology: true});
   await client.connect();
   const db = client.db("sneakers");
@@ -193,7 +190,7 @@ exports.getOrderDetails=getOrderDetails;
 
 
 
-async function deleteOrder(){  //delete cart after purchase 
+async function deleteOrder(){  //Deletes products from the shopping cart on the website and deletes them from the collection of order details in Mongo DB
   var client = new MongoClient(url, {useUnifiedTopology: true});
   await client.connect();
   const db = client.db("sneakers");

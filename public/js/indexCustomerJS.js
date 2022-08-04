@@ -1,21 +1,20 @@
-function AddMen() { //create table for Men's sneakers
+function AddMen() { //Creating a table of men's shoes with the option to add to the shopping cart
     fetch("/getMen")
       .then((response) => response.text())
       .then((data) => {
         var Men = JSON.parse(data);
         var myTables = `<table class="styled-table" >
               <tr>
-              <th> &nbsp; </th>
-              <th >Name</th>
-              <th> &nbsp; </th>
-              <th>Image</th>
-              <th> &nbsp; </th>
-              <th>Size</th>
-              <th> &nbsp; </th>
+              <th>Name</th>
+              <th> &nbsp; </th> <th> &nbsp; </th> 
+              <th> Image</th>
+              <th> &nbsp; </th> <th> &nbsp; </th> 
               <th>Price$</th>
-              <th> &nbsp; </th>
+              <th> &nbsp; </th> <th> &nbsp; </th> 
+              <th>Size</th>
+              <th> &nbsp; </th> <th> &nbsp; </th> <th> &nbsp; </th>
               <th>Quantity </th>
-              <th> &nbsp; </th>
+              <th> &nbsp; </th> <th> &nbsp; </th> 
               <th>Add to cart </th>
             
           </tr>
@@ -58,24 +57,23 @@ function AddMen() { //create table for Men's sneakers
   }
 
   
-function AddWoman() { //create table for woman's sneakers
+function AddWoman() { //Creating a table of woman's shoes with the option to add to the shopping cart
     fetch("/getWoman")
       .then((response) => response.text())
       .then((data) => {
         var Woman = JSON.parse(data);
         var myTables = `<table class="styled-table">
-          <tr>
-          <th >Name</th>
-          <th> &nbsp; </th>
-          <th>Image</th>
-          <th> &nbsp; </th>
-          <th>Size</th>
-          <th> &nbsp; </th>
-          <th>Price$</th>
-          <th> &nbsp; </th>
-          <th>Quantity </th>
-          <th> &nbsp; </th>
-          <th>Add to cart </th>
+        <th >Name</th>
+        <th> &nbsp; </th> <th> &nbsp; </th> 
+        <th> Image</th>
+        <th> &nbsp; </th> <th> &nbsp; </th> 
+        <th>Price$</th>
+        <th> &nbsp; </th> <th> &nbsp; </th> 
+        <th>Size</th>
+        <th> &nbsp; </th> <th> &nbsp; </th> <th> &nbsp; </th>
+        <th>Quantity </th>
+        <th> &nbsp; </th> <th> &nbsp; </th> 
+        <th>Add to cart </th>
         
       </tr>
   </table>`;
@@ -116,7 +114,7 @@ function AddWoman() { //create table for woman's sneakers
       });
   }
 
-  function AddKids() { //create table for kids sneakers
+  function AddKids() { //Creating a table of kids shoes with the option to add to the shopping cart
     fetch("/getKids")
       .then((response) => response.text())
       .then((data) => {
@@ -124,15 +122,15 @@ function AddWoman() { //create table for woman's sneakers
         var myTables = `<table class="styled-table">
                   <tr>
                   <th >Name</th>
-                  <th> &nbsp; </th>
-                  <th>Image</th>
-                  <th> &nbsp; </th>
-                  <th>Size</th>
-                  <th> &nbsp; </th>
+                  <th> &nbsp; </th> <th> &nbsp; </th> 
+                  <th> Image</th>
+                  <th> &nbsp; </th> <th> &nbsp; </th> 
                   <th>Price$</th>
-                  <th> &nbsp; </th>
+                  <th> &nbsp; </th> <th> &nbsp; </th> 
+                  <th>Size</th>
+                  <th> &nbsp; </th> <th> &nbsp; </th> <th> &nbsp; </th>
                   <th>Quantity </th>
-                  <th> &nbsp; </th>
+                  <th> &nbsp; </th> <th> &nbsp; </th> 
                   <th>Add to cart </th>
                 
               </tr>

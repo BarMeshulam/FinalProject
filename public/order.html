@@ -9,14 +9,18 @@
 	 <link rel="stylesheet" href="./css/orderDetailsCSS.css">
 	 <link rel="stylesheet" href="./css/catalogCSS.css">
 </head>
+
+<!-- This page shows the customer his products in the order and allows him to enter his personal information and place the order -->
+
 <body onload="getOrderDetails()">
 	<div id="formContent" style="margin-left: auto; margin-right: auto;">
 		<div class="wrapper fadeInDown">
 				<div>
 					<h1>Order Details</h1>
 					<form action="/addorder">
-					<table class="styled-table" id="myOrder"> </table>
 					
+					<table class="styled-table" id="myOrder"> </table>
+					<h1> Customer Details</h1>
 						<input type="text" name="name" id="expityMonth" placeholder="Name"
 								required />
 						<input type="text" name="city" id="expityMonth" placeholder="City"

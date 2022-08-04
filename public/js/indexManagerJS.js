@@ -1,125 +1,26 @@
-function showManagerMenShoes() { //create table to men's shoes
-    fetch("/getmen")
-      .then((response) => response.text())
-      .then((data) => {
-        var menTypes = JSON.parse(data);
-        var myTables = `<table class="styled-table" >
-              <tr>
-              <th >Name</th>
-              <th>Image</th>
-              <th>Price $</th>
-          </tr>
-      </table>`;
-        menTypes.forEach((element) => {
-          myTables += `
-                  <table class="styled-table" >
-                 
-                      <tr>
-                        <td><input type="hidden" name="name" value="${element.name}">${element.name}</td>
-                        <td ><input type="hidden" name="img" value="${element.img}">
-                        <img src="./photos/${element.img}.PNG" alt="${element.img}" width="150" height="120">
-                        </td>
-                        <td> <input type="hidden" name="price" value="${element.price}">${element.price}</td>
-
-                      </tr>
-                      </table>
-                  
-                  `;
-        });
-        document.getElementById("mensneakers").innerHTML = myTables;
-      });
-  }
-
-
-  function showManagerWomanShoes() { //create table to woman's shoes
-    fetch("/getwoman")
-      .then((response) => response.text())
-      .then((data) => {
-        var menTypes = JSON.parse(data);
-        var myTables = `<table class="styled-table" >
-              <tr>
-              <th >Name</th>
-              <th>Image</th>
-              <th>Price $</th>
-          </tr>
-      </table>`;
-        menTypes.forEach((element) => {
-          myTables += `
-                  <table class="styled-table" >
-                 
-                      <tr>
-                        <td><input type="hidden" name="name" value="${element.name}">${element.name}</td>
-                        <td ><input type="hidden" name="img" value="${element.img}">
-                        <img src="./photos/${element.img}.PNG" alt="${element.img}" width="150" height="120">
-                        </td>
-                        <td> <input type="hidden" name="price" value="${element.price}">${element.price}</td>
-
-                      </tr>
-                      </table>
-                  
-                  `;
-        });
-        document.getElementById("womansneakers").innerHTML = myTables;
-      });
-  }
-
-
-  function showManagerKidsShoes() { //create table to kids shoes
-    fetch("/getkids")
-      .then((response) => response.text())
-      .then((data) => {
-        var menTypes = JSON.parse(data);
-        var myTables = `<table class="styled-table" >
-              <tr>
-              <th >Name</th>
-              <th>Image</th>
-              <th>Price $</th>
-          </tr>
-      </table>`;
-        menTypes.forEach((element) => {
-          myTables += `
-                  <table class="styled-table" >
-                 
-                      <tr>
-                        <td><input type="hidden" name="name" value="${element.name}">${element.name}</td>
-                        <td ><input type="hidden" name="img" value="${element.img}">
-                        <img src="./photos/${element.img}.PNG" alt="${element.img}" width="150" height="120">
-                        </td>
-                        <td> <input type="hidden" name="price" value="${element.price}">${element.price}</td>
-
-                      </tr>
-                      </table>
-                  
-                  `;
-        });
-        document.getElementById("kidssneakers").innerHTML = myTables;
-      });
-  }
-
-
-  function openFormAddNewMenShoes() { //form to add new men shoes
+  function openFormAddNewMenShoes() { //form that allows the manager to add a men's shoe to the catalog
     document.getElementById("myFormMen").style.display = "block";
   }
   
-  function openFormAddNewWomanShoes() { //form to add new woman shoes
+  function openFormAddNewWomanShoes() { //form that allows the manager to add a woman's shoe to the catalog
     document.getElementById("myFormWoman").style.display = "block";
   }
   
-  function openFormAddNewKidsShoes() { //form to add new kids shoes
+  function openFormAddNewKidsShoes() { //form that allows the manager to add a kids shoe to the catalog
     document.getElementById("myFormKids").style.display = "block";
   }
   
 
   
-  function closeFormNewMenShoes() { //close the men form
+  function closeFormNewMenShoes() { //Allows the manager to exit the form of adding a men's shoe to the catalog without adding the shoe
     document.getElementById("myFormMen").style.display = "none";
   }
   
-  function closeFormNewWomanShoes() { //close the woman form
+  function closeFormNewWomanShoes() { //Allows the manager to exit the form of adding a woman's shoe to the catalog without adding the shoe
     document.getElementById("myFormWoman").style.display = "none";
   }
   
-  function closeFormNewKidsShoes() { //close the kids form
+  function closeFormNewKidsShoes() { //Allows the manager to exit the form of adding a kids shoe to the catalog without adding the shoe
     document.getElementById("myFormKids").style.display = "none";
   }
 
@@ -192,43 +93,5 @@ function showManagerMenShoes() { //create table to men's shoes
           </form>`;
         });
         document.getElementById("activeUsers").innerHTML = myTables;
-      });
-  }
-
-  function showMenadd() { //create table for Men's sneakers
-    fetch("/getMen")
-      .then((response) => response.text())
-      .then((data) => {
-        var Men = JSON.parse(data);
-        var myTables = `<table class="styled-table" >
-              <tr>
-              <th></th>
-              <th >Name</th>
-              <th>Image</th>
-              <th>Price $</th>
-              
-            
-          </tr>
-      </table>`;
-        Men.forEach((element) => {
-          myTables += `
-                        <form action="/addNewOrder">
-                  <table class="styled-table" >
-                 
-                      <tr>
-                          <td><input type="hidden" name="name" value="${element.name}">${element.name}</td>
-                         
-                          <td ><input type="hidden" name="img" value="${element.img}">
-                          <img src="./photos/${element.img}.PNG" alt="${element.img}" width="150" height="120">
-                          </td>
-                          <td> <input type="hidden" name="price" value="${element.price}">${element.price}</td>
-  
-                      </tr>
-                      </form>
-                      </table>
-                  
-                  `;
-        });
-        document.getElementById("mensneakers").innerHTML = myTables;
       });
   }

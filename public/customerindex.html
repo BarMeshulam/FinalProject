@@ -24,12 +24,11 @@
 
 </head>
 
+<!-- this is the home page of the customer, after someone log in as customer he will see this page -->
 
 <body onload= "fetchPage('homePage.html')">
    
-
     <!-- navigation bar -->
-
 
     <div class="whitetext" >
         <span class="left"> <img src="./sneakerlogo.jpg" alt="the logo" width="100px" > </span> 
@@ -38,6 +37,8 @@
         <a href="index.html" class="w3-bar-item w3-button" >log out</a>
         <span href="#" id="cart" class="fa fa-shopping-cart" onclick="fetchPage('order.html'),showorder()"></span>
     </div>
+
+    <!-- the search button per category -->
 
     <div class="topnav"> 
 		<div>
@@ -48,12 +49,12 @@
 			</form>
 		</div>
 	</div>
-      <!-- render page -->
+   
+      <div id="rednerPage"> </div>
 
-      <div id="rednerPage">
-          123
+      
+    <!-- footer -->
 
-      </div>
       <div id="footer"  >
         <p>  Bar Linkdin   <a href="https://www.linkedin.com/in/barmeshulam/" class="fa fa-linkedin"></a> Keshet Linkdin   <a href="https://www.linkedin.com/in/keshetmor/" class="fa fa-linkedin"></a>  Nadav Linkdin   <a href="https://www.linkedin.com/in/nadavyerushalmi/" class="fa fa-linkedin"></a> </p>
         <p>&copy; MYSHOES COMPANY INC. All Rights Reserved. </p>  

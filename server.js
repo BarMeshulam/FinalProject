@@ -11,7 +11,7 @@ app.listen(port, () => {
   console.log(`http://localhost:${port}`)
 })
 
-app.get('/addCustomers', (req, res) => { //add new customer
+app.get('/addCustomers', (req, res) => { //add and save new customer into MongoDB and transfer him to the customer home page
   var newClient =
   {
     Fname: req.query.Fname,
@@ -29,7 +29,8 @@ app.get('/addCustomers', (req, res) => { //add new customer
 })
 
 
-app.get('/addmanager', (req, res) => { // add new user by admin
+app.get('/addmanager', (req, res) => { // add a new user that the manager create to Mongo DB and determine whether he is a customer or an manager 
+ //                                       and transfer him to manager home page
   var newManager =
   {
     Fname: req.query.Fname,
@@ -46,7 +47,7 @@ app.get('/addmanager', (req, res) => { // add new user by admin
 
 })
 
-app.get('/addorder', (req, res) => { // add order to mongo
+app.get('/addorder', (req, res) => { // Adds an order to MongoDB and sets it to an open status and transfer the customer to a complete order page
   var date=new Date()
   var split_date=date.getFullYear()+'-' + (date.getMonth()+1) + '-'+date.getDate()
  var neworder =
@@ -90,7 +91,7 @@ app.get("/getkids", (req, res) => { //show all the kids sneakers
   watchData();
 });
 
-app.get('/NewMenProduct', (req, res) => { //save new Men shoes
+app.get('/NewMenProduct', (req, res) => { //add and save the new Men shoes that the manager add into the MongoDB and transfer him to the manager home page
   var newMenProduct =
   {
     name: req.query.name,
@@ -104,7 +105,7 @@ app.get('/NewMenProduct', (req, res) => { //save new Men shoes
 
 })
 
-app.get('/NewWomanProduct', (req, res) => { //save new Woman shoes
+app.get('/NewWomanProduct', (req, res) => { //add and save the new woman shoes that the manager add into the MongoDB and transfer him to the manager home page
   var newWomanProduct =
   {
     name: req.query.name,
@@ -119,7 +120,7 @@ app.get('/NewWomanProduct', (req, res) => { //save new Woman shoes
 })
 
 
-app.get('/NewKidsProduct', (req, res) => { //save new Kids shoes
+app.get('/NewKidsProduct', (req, res) => { //add and save the new kinds shoes that the manager add into the MongoDB and transfer him to the manager home page
   var newKidsProduct =
   {
     name: req.query.name,
@@ -133,14 +134,14 @@ app.get('/NewKidsProduct', (req, res) => { //save new Kids shoes
 
 })
 
-app.get("/getOpenOrders", (req, res) => { //get open orders from mongo
+app.get("/getOpenOrders", (req, res) => { //get open orders from MongoDB
   async function getOrders() {
     await mydb.GetOpenOrders().then((result) => res.send(result));
   }
   getOrders();
 });
 
-app.get("/getusers", (req, res) => { //get exist users from mongoDB
+app.get("/getusers", (req, res) => { //get exist users from MongoDB
   async function users() {
     await mydb.getUsers().then((result) => res.send(result));
   }
@@ -148,7 +149,7 @@ app.get("/getusers", (req, res) => { //get exist users from mongoDB
 });
 
 
-app.get("/getclose", (req, res) => { //mark order as completed by name
+app.get("/getclose", (req, res) => { //mark order as completed by adress and transfer the manager to the manager home page
 
   var close = req.query.address
 
@@ -158,7 +159,7 @@ app.get("/getclose", (req, res) => { //mark order as completed by name
   getclose(close);
 });
 
-app.get("/delete", (req, res) => { //delete user 
+app.get("/delete", (req, res) => { //delete user from MongoDB and transfer the manager to manager home page
 
   var Delete = req.query.Email
 
@@ -170,7 +171,7 @@ app.get("/delete", (req, res) => { //delete user
 
 
 
-app.get('/addNewOrder', (req, res) => { // get order details to the cart
+app.get('/addNewOrder', (req, res) => { // get order details from MongoDB to the cart in the website and transfer the customer to customer home page
   var order =
   {
     name: req.query.nameProduct,
@@ -187,21 +188,21 @@ app.get('/addNewOrder', (req, res) => { // get order details to the cart
 
 })
 
-app.get("/getorder", (req, res) => { // get Order Details
+app.get("/getorder", (req, res) => { // get Order Details from MongoDB
   async function myData() {
     await mydb.getOrderDetails().then((result) => res.send(result));
   }
   myData();
 });
 
-app.get("/deleteLastOrder", (req, res) => { // delete the cart
+app.get("/deleteLastOrder", (req, res) => { // delete the last order from the shopping cart after the customer pay and transfer the customer to customer homepage
   async function deleteLast() {
     await mydb.deleteOrder().then((result) => res.redirect('customerindex.html'));
   }
   deleteLast();
 });
 
-app.get("/login",async(req,res)=>{ // Verify login by Email and password
+app.get("/login",async(req,res)=>{ // Identifies if the user exists and what his type is, and moves him to the page relevant to him
   var User =
    {
     Email:req.query.Email,

@@ -12,15 +12,19 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="./css/homePageCSS.css">
 </head>
+
+<!-- This page confirms to the customer that the order has been received and carried out successfully
+ and removes the products of the last order from the shopping cart -->
+
 <body>
  
     </div>
     <div class="container">
         <p>
             <form action="/deleteLastOrder">
-                <h1>Thank You</h1>
+                <h1>Your order is complete</h1>
             
-                <p>Thank you for your purchase.<br><br>We'll be happy to see you again soon.</p>
+                <p>Thank you for choosing to shop on our website.<br><br>We will be happy to serve you again as soon as possible.</p>
 
                 <h4> <button onclick="fetchPage('homePage.html'),deleteOrder()"> Back To Home Page </button> </h4>
             </form>

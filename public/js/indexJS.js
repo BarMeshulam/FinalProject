@@ -3,7 +3,7 @@ function fetchPage(whatPage) { //fetch page
     .then((response) => response.text())
     .then((data) => (document.getElementById("rednerPage").innerHTML = data));
 }
-function showMen() { //create table for Men's sneakers
+function showMen() { //Creating a table of men's shoes without the option to add to the shopping cart
   fetch("/getMen")
     .then((response) => response.text())
     .then((data) => {
@@ -41,7 +41,7 @@ function showMen() { //create table for Men's sneakers
     });
 }
 
-function showWoman() { //create table for woman's sneakers
+function showWoman() { //Creating a table of woman's shoes without the option to add to the shopping cart
   fetch("/getWoman")
     .then((response) => response.text())
     .then((data) => {
@@ -77,7 +77,7 @@ function showWoman() { //create table for woman's sneakers
     });
 }
 
-function showKids() { //create table for kids sneakers
+function showKids() { //Creating a table of kids shoes without the option to add to the shopping cart
   fetch("/getKids")
     .then((response) => response.text())
     .then((data) => {
@@ -113,7 +113,7 @@ function showKids() { //create table for kids sneakers
     });
 }
 
-function showorder() { //show the cart
+function showorder() { //Shows the existing products in the shopping cart and creates a form for entering the details of the ordering customer
   fetch("/getorder")
     .then((response) => response.text())
     .then((data) => {
@@ -123,7 +123,7 @@ function showorder() { //show the cart
       <table class="styled-table">
               <th >Name</th>
               <th> &nbsp;&nbsp;</th>
-              <th> &nbsp; mage</th>
+              <th> &nbsp; Image</th>
               <th> &nbsp; </th>
               <th>Price$</th>
               <th> &nbsp; </th>
@@ -167,13 +167,13 @@ function showorder() { //show the cart
 function getval(){ //search by category name
   const val = document.querySelector('input').value;
   if(val.toLowerCase() === "men"){
-    fetchPage('men.html'),showMen();
+    fetchPage('addMen.html'),AddMen();
   }
   if (val.toLowerCase() === "woman"){
-    fetchPage('woman.html'),showWoman();
+    fetchPage('addWoman.html'),AddWoman();
   }
   if (val.toLowerCase() === "kids") {
-    fetchPage('kids.html'),showKids();
+    fetchPage('addKids.html'),AddKids();
   }
   if (val.toLowerCase() != "men" && val.toLowerCase() != "woman" && val.toLowerCase() != "kids"){
     alert('no '+ val+ ' product')
