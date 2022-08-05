@@ -172,3 +172,71 @@ function AddWoman() { //Creating a table of woman's shoes with the option to add
       });
   }
 
+
+  function showorder() { //Shows the existing products in the shopping cart and creates a form for entering the details of the ordering customer
+    fetch("/getorder")
+      .then((response) => response.text())
+      .then((data) => {
+        var Types = JSON.parse(data);
+        var myTables = `
+        
+        <table class="styled-table">
+                <th >Name</th>
+                <th> &nbsp;&nbsp;</th>
+                <th> &nbsp; Image</th>
+                <th> &nbsp; </th>
+                <th>Price$</th>
+                <th> &nbsp; </th>
+                <th> Size </th>
+                <th> &nbsp; </th>
+                <th>Quantity </th>
+                <th> Total</th>
+                
+              </tr>
+          </table>
+          `;
+        Types.forEach((element) => {
+          myTables += `
+          <form action="/addorder" >
+                  <table class="styled-table" >
+                      <tr>
+                      <td><input type="hidden" name="nameProduct" value="${element.name}">${element.name}</td>
+                      <th> &nbsp; </th>
+                          <td ><input type="hidden" name="img" value="${element.img}">
+                          <img src="./photos/${element.img}.png" alt="${element.img}" width="150" height="120">
+                          <th> &nbsp; </th>
+                          </td>
+                          <td><input type="hidden" name="priceProduct" value="${element.price}"> ${element.price}</td>
+                          <th> &nbsp; </th>
+                          <td><input type="hidden" name="sizeProduct" value="${element.size}"> ${element.size}</td>
+                          <th> &nbsp; </th>
+                          <td><input type="hidden" name="quantityProduct" value="${element.quantity}"> ${element.quantity}</td>
+                          <th> &nbsp; </th>
+                          <td><input type="hidden" name="total" value="${element.total}"> ${element.total}</td>
+                      </tr>
+                      </form>
+                      </table>
+                      `; 
+           
+                      
+        });
+        document.getElementById("myOrder").innerHTML = myTables;
+      });
+  }
+  
+  function getval(){ //search by category name
+    const val = document.querySelector('input').value;
+    if(val.toLowerCase() === "men"){
+      fetchPage('addMen.html'),AddMen();
+    }
+    if (val.toLowerCase() === "woman"){
+      fetchPage('addWoman.html'),AddWoman();
+    }
+    if (val.toLowerCase() === "kids") {
+      fetchPage('addKids.html'),AddKids();
+    }
+    if (val.toLowerCase() != "men" && val.toLowerCase() != "woman" && val.toLowerCase() != "kids"){
+      alert('no '+ val+ ' product')
+    } 
+  
+  }
